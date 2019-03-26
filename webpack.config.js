@@ -13,7 +13,7 @@ module.exports = () => {
              * With zero configuration,
              *   clean-webpack-plugin will remove files inside the directory below
              */
-            path: path.resolve(process.cwd(), 'dist'),
+            path: path.resolve(__dirname, 'dist'),
         },
         plugins: [
             new CleanWebpackPlugin(),
