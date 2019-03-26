@@ -1,54 +1,27 @@
 //Core
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-/**
- * Типы конфигов вебпак:
- * Object
- * Function
- * Promise
- */
-const delay = (timeout = 1000) =>
-    new Promise(resolve => setTimeout(resolve, timeout));
-/*
-module.exports = {
-    mode: 'none',
-    devtool: false,
-};*/
-/*
-module.exports = async () => {
-
-    console.log('1');
-
-    //pause 1000ms
-    await  delay();
-
-    console.log('2');
-
-    return {
-        mode: 'none',
-        devtool: false,
-    }
-};*/
-
-/*
-module.exports = Promise.resolve({
-    mode: 'none',
-    devtool: false,
-});*/
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const path = require('path');
 
 module.exports = () => {
 
     return {
-        mode: 'none',
+        mode:    'none',
         devtool: false,
+        output:  {
+            /**
+             * With zero configuration,
+             *   clean-webpack-plugin will remove files inside the directory below
+             */
+            path: path.resolve(process.cwd(), 'dist'),
+        },
         plugins: [
-            //every plugin is a constructor
-
+            new CleanWebpackPlugin(),
             new HtmlWebpackPlugin({
                 template: './static/template.html',
-                title: 'Learning Webpack!🚀',
-                favicon: './static/favicon.ico',
+                title:    'Learning Webpack!🚀',
+                favicon:  './static/favicon.ico',
             })
-        ]
+        ],
     };
 };
