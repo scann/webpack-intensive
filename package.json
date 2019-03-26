@@ -1,11 +1,13 @@
 {
     "name": "webpack-intensive",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "author": "Dima Vakatsiienko <dvakatsiienko@lectrum.io>",
     "private": true,
     "scripts": {
+        "build": "webpack",
         "checkpoint": "cross-env-shell NODE_ENV=development node --require @babel/register \"./scripts/git/checkpoint.js\"",
-        "sync": "cross-env-shell NODE_ENV=development node --require @babel/register \"./scripts/git/sync.js\""
+        "sync": "cross-env-shell NODE_ENV=development node --require @babel/register \"./scripts/git/sync.js\"",
+        "serve": "serve \"./dist\" -s"
     },
     "devDependencies": {
         "@babel/core": "7.2.0",
@@ -16,6 +18,13 @@
         "babel-plugin-dynamic-import-node": "2.2.0",
         "cross-env": "5.2.0",
         "moment": "2.22.2",
-        "nodegit": "0.23.0"
+        "nodegit": "0.23.0",
+        "prettier": "^1.16.4"
+    },
+    "dependencies": {
+        "html-webpack-plugin": "^3.2.0",
+        "serve": "^10.1.2",
+        "webpack": "^4.29.6",
+        "webpack-cli": "^3.3.0"
     }
 }
