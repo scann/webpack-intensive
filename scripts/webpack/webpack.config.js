@@ -18,6 +18,14 @@ module.exports = () => {
             path:     BUILD_DIRECTORY,
             filename: 'bundle.js',
         },
+        module: {
+            rules: [
+                {
+                    test: /\.css$/,
+                    use:  ['style-loader', 'css-loader'],
+                }
+            ],
+        },
         mode:    'none',
         devtool: false,
         plugins: [
