@@ -10,7 +10,7 @@ const webpack = require('webpack');
 const DevServer = require('webpack-dev-server');
 const hot = require('webpack-hot-middleware');
 const chalk = require('chalk');
-
+const { choosePort } = require('react-dev-utils/WebpackDevServerUtils');
 //Config
 const getConfig = require('./webpack.config');
 
@@ -21,30 +21,40 @@ const getConfig = require('./webpack.config');
 // 4. настроить в исходном коде
 
 //Constants
-const { HOST, PORT } =require('./constants');
+const { HOST, PORT } = require('./constants');
 
-const compiler = webpack(getConfig());
+choosePort(HOST, PORT)
+    .then((port) => {
+        if (port === null) {
+            // We have not found a port.
+            return;
+        }
+        const compiler = webpack(getConfig());
 
-const server = new DevServer(compiler, {
-    host:               HOST,
-    port:               PORT,
-    historyApiFallback: true,
-    overlay:            true,
-    quiet:              true,
-    clientLogLevel:     'none',
-    noInfo:             true,
-    after:              (app) => {
-        app.use(
-            hot(compiler, {
-                log: false,
-            }),
-        );
-    },
-});
+        const server = new DevServer(compiler, {
+            host:               HOST,
+            port,
+            historyApiFallback: true,
+            overlay:            true,
+            quiet:              true,
+            clientLogLevel:     'none',
+            noInfo:             true,
+            after:              (app) => {
+                app.use(
+                    hot(compiler, {
+                        log: false,
+                    }),
+                );
+            },
+        });
 
-server.listen(PORT, HOST, () => {
-    console.log(`${chalk.green('--Server listening on')} ${chalk.blue(
-        `http://${HOST}:${PORT}`,
-    )}`,
-    );
-});
+        server.listen(port, HOST, (err) => {
+            if (err) {
+                return console.log(err);
+            }
+            console.log(`${chalk.green('--Server listening on')} ${chalk.blue(
+                `http://${HOST}:${port}`,
+            )}`,
+            );
+        });
+    });
