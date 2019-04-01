@@ -23,17 +23,20 @@ const getConfig = require('./webpack.config');
 //Constants
 const { HOST, PORT } = require('./constants');
 
-choosePort(HOST, PORT)
-    .then((port) => {
-        if (port === null) {
-            // We have not found a port.
-            return;
-        }
-        const compiler = webpack(getConfig());
+const compiler = webpack(getConfig());
 
+(async () => {
+    try {
+        const selectedPort = await choosePort(HOST, PORT);
+
+        if (!selectedPort) {
+            console.log(chalk.yellow('--It\'s impossible to run the app :('));
+
+            return null;
+        }
         const server = new DevServer(compiler, {
             host:               HOST,
-            port,
+            port:               selectedPort,
             historyApiFallback: true,
             overlay:            true,
             quiet:              true,
@@ -48,13 +51,14 @@ choosePort(HOST, PORT)
             },
         });
 
-        server.listen(port, HOST, (err) => {
-            if (err) {
-                return console.log(err);
-            }
+        server.listen(selectedPort, HOST, () => {
             console.log(`${chalk.green('--Server listening on')} ${chalk.blue(
-                `http://${HOST}:${port}`,
+                `http://${HOST}:${selectedPort}`,
             )}`,
             );
         });
-    });
+    } catch (error) {
+        console.log(chalk.red('--Error!'));
+        console.log(error.message || error);
+    }
+})();
