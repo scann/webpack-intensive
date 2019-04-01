@@ -10,7 +10,9 @@ const webpack = require('webpack');
 const DevServer = require('webpack-dev-server');
 const hot = require('webpack-hot-middleware');
 const chalk = require('chalk');
-const { choosePort } = require('react-dev-utils/WebpackDevServerUtils');
+//const { choosePort } = require('react-dev-utils/WebpackDevServerUtils');
+const { choosePort } = require('./utils');
+
 //Config
 const getConfig = require('./webpack.config');
 
@@ -27,7 +29,7 @@ const compiler = webpack(getConfig());
 
 (async () => {
     try {
-        const selectedPort = await choosePort(HOST, PORT);
+        const selectedPort = await choosePort(PORT);
 
         if (!selectedPort) {
             console.log(chalk.yellow('--It\'s impossible to run the app :('));
