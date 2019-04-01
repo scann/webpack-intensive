@@ -39,7 +39,7 @@ module.exports = () => {
                 favicon:  './static/favicon.ico',
             }),
             new CleanWebpackPlugin({ BUILD_DIRECTORY, cleanOptions }),
-            new HotModuleReplacementPlugin(),
+            new HotModuleReplacementPlugin()
         ],
     };
 };
