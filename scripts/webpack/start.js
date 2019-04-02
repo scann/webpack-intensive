@@ -14,7 +14,7 @@ const chalk = require('chalk');
 const { choosePort } = require('./utils');
 
 //Config
-const getConfig = require('./webpack.config');
+const getDevConfig = require('./config/webpack.dev');
 
 //Hot reloading
 // 1. настроить на сервере
@@ -25,7 +25,7 @@ const getConfig = require('./webpack.config');
 //Constants
 const { HOST, PORT } = require('./constants');
 
-const compiler = webpack(getConfig());
+const compiler = webpack(getDevConfig());
 
 (async () => {
     try {
