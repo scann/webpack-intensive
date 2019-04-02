@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 //Constants
 const { BUILD_DIRECTORY, SOURCE_DIRECTORY } = require('../constants');
+const env = require('postcss-preset-env');
 
 module.exports = () => {
 
@@ -22,7 +23,27 @@ module.exports = () => {
                 },
                 { //TODO: прокачать загрузку стилей
                     test: /\.css$/,
-                    use:  ['style-loader', 'css-loader'],
+                    use:  ['style-loader',
+                        {
+                            loader:  'css-loader',
+                            options: {
+                                modules:        true,
+                                localIdentName:
+                                    '[path][name]__[local]--[hash:base64:5]',
+                            },
+                        },
+                        {
+                            loader:  'postcss-loader',
+                            options: {
+                                plugins: [
+                                    // цепочка плагинов postcss
+                                    env({
+                                        stage: 0, //default: stage 2
+                                    })
+                                ],
+                            },
+                        }
+                    ],
                 }
             ],
         },
