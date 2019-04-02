@@ -1,5 +1,5 @@
-import component from './simple-components/dom';
-import './theme/main.css';
+/*import component from './simple-components/dom';
+//import './theme/main.css';
 
 let element = component();
 
@@ -16,4 +16,5 @@ if (module.hot) {
         element = component();
         document.body.appendChild(element);
     });
-}
+}*/
+import './simple-components/javascript';
