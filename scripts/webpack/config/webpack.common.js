@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 //Constants
-const { BUILD_DIRECTORY, PROJECT_ROOT, SOURCE_DIRECTORY } = require('./constants');
+const { BUILD_DIRECTORY, PROJECT_ROOT, SOURCE_DIRECTORY } = require('../constants');
 
 const cleanOptions = {
     verbose: true,
