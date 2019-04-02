@@ -17,4 +17,5 @@ if (module.hot) {
         document.body.appendChild(element);
     });
 }*/
-import './simple-components/javascript';
+//import './simple-components/javascript';
+import './react-component';
