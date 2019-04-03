@@ -2,16 +2,24 @@ module.exports = (api) => {
 
     const env = api.env(); //process.env.BABEL_ENV || process.env.NODE_ENV
 
+    /**
+     * Рекомендуется использовать именно эту форму кеширования для лучшей консистентности
+     * https://babeljs.io/docs/en/config-files#apicache
+     */
     //api.cache.using(() => env === 'development'); // TODO: research
 
     api.cache.never();
 
     const plugins = ['@babel/proposal-class-properties'];
 
-    // if (env === 'development') {
-    // TODO: прорисерчить react-hot-loader
-    //     plugins.push('react-hot-loader/babel');
-    // }
+     if (env === 'development') {
+         /**
+          * Этот плагин не обязательный для хот-релодинга React-компонентов.
+          * Обязательным является НОС hot из 'react-hot-loader/root'.
+          * Но без этого плагина хот-релодинг может давать сбои, поэтому добавить его нужно
+          */
+        plugins.push('react-hot-loader/babel');
+     }
 
     return {
         presets: [
