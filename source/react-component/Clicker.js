@@ -4,6 +4,9 @@ import { hot } from 'react-hot-loader/root';
 
 // Styles
 import Styles from './postcss.css';
+import kitty from '../theme/images/kitty.jpg';
+
+import { Button } from './Button';
 
 class Clicker extends Component {
         state = {
@@ -28,9 +31,10 @@ class Clicker extends Component {
                         '--mainColor':       'rebeccapurple',
                         '--headingFontSize': `${this.state.count}px`,
                     } }>
+                    <img src = { kitty } />
                     <h1>Counter: {count}</h1>
-                    <button onClick = { this.inc }>Increment</button>
-                    <button onClick = { this.dec }>Decrement</button>
+                    <Button onClick = { this.inc }>Increment</Button>
+                    <Button onClick = { this.dec }>Decrement</Button>
                 </section>
             );
         }
