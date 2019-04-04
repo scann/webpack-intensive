@@ -1,12 +1,12 @@
 //Core
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const merge = require('webpack-merge');
+import CleanWebpackPlugin from 'clean-webpack-plugin';
+import merge from 'webpack-merge';
 
 //Constants
-const { BUILD_DIRECTORY, PROJECT_ROOT } = require('../constants');
+import { BUILD_DIRECTORY, PROJECT_ROOT } from '../constants';
 
 //Configurations
-const getCommonConfig = require('./webpack.common');
+import getCommonConfig from './webpack.common';
 
 const cleanOptions = {
     verbose: true,
