@@ -12,8 +12,8 @@ const hot = require('webpack-hot-middleware');
 const chalk = require('chalk');
 //const { choosePort } = require('react-dev-utils/WebpackDevServerUtils');
 const { choosePort } = require('./utils');
-const opener = require('opener');
-
+//const opener = require('opener');
+const openBrowser = require('react-dev-utils/openBrowser');
 //Config
 const getDevConfig = require('./config/webpack.dev');
 
@@ -60,7 +60,7 @@ const compiler = webpack(getDevConfig());
             )}`,
             );
         });
-        opener(`http://${HOST}:${selectedPort}`);
+        openBrowser(`http://${HOST}:${selectedPort}`);
     } catch (error) {
         console.log(chalk.red('--Error!'));
         console.log(error.message || error);
