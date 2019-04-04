@@ -14,6 +14,12 @@
 
   & h1 {
     font-size: var(--headingFontSize);
+    background-image: url('../theme/images/react.svg');
+    background-repeat: no-repeat;
+    background-position: 40px 50%;
+    text-align: left;
+    padding-left: 100px;
+    width: max-content;
   }
   @media(--phonePortrait) {
     color: red;
