@@ -22,7 +22,7 @@ module.exports = () => {
                         loader: 'babel-loader',
                     },
                 },
-                { //TODO: прокачать загрузку стилей
+                {
                     test: /\.css$/,
                     use:  ['style-loader',
                         {
@@ -68,6 +68,17 @@ module.exports = () => {
                                         },
                                     })
                                 ],
+                            },
+                        }
+                    ],
+                },
+                {
+                    test: /\.(png|jpg|jpeg)$/,
+                    use:  [
+                        {
+                            loader:  'file-loader',
+                            options: {
+                                name: 'images/[name].[ext]',
                             },
                         }
                     ],
