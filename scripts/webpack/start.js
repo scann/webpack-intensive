@@ -5,26 +5,27 @@
 // 5.create webpack compiler
 // 6.run
 
-//Core
-const webpack = require('webpack');
-const DevServer = require('webpack-dev-server');
-const hot = require('webpack-hot-middleware');
-const chalk = require('chalk');
-//const { choosePort } = require('react-dev-utils/WebpackDevServerUtils');
-const { choosePort } = require('./utils');
-//const opener = require('opener');
-const openBrowser = require('react-dev-utils/openBrowser');
-//Config
-const getDevConfig = require('./config/webpack.dev');
-
 //Hot reloading
 // 1. настроить на сервере
 // 2. настроить на клиенте
 // 3. настроить в вебпаке
 // 4. настроить в исходном коде
 
+//Core
+import webpack from 'webpack';
+import DevServer from 'webpack-dev-server';
+import hot from 'webpack-hot-middleware';
+import chalk from 'chalk';
+//const { choosePort } = require('react-dev-utils/WebpackDevServerUtils');
+import { choosePort } from './utils';
+//const opener = require('opener');
+import openBrowser from 'react-dev-utils/openBrowser';
+
+//Config
+import getDevConfig from './config/webpack.dev';
+
 //Constants
-const { HOST, PORT } = require('./constants');
+import { HOST, PORT } from './constants';
 
 const compiler = webpack(getDevConfig());
 
