@@ -1,5 +1,6 @@
 //Core
-import env from "postcss-preset-env";
+import env from 'postcss-preset-env';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export const loadCss = () => ({
     module: {
@@ -57,4 +58,20 @@ export const loadCss = () => ({
             }
         ],
     },
+});
+export const loadSass = () => ({
+    module: {
+        rules: [
+            {
+                test: /\.scss$/,
+                use:  ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use:      ['css-loader', 'sass-loader'],
+                }),
+            }
+        ],
+    },
+    plugins: [
+        new ExtractTextPlugin('style.css')
+    ],
 });
