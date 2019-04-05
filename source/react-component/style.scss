@@ -1,0 +1,14 @@
+@font-face {
+  font-family: Cassandra;
+  src: url('../theme/fonts/Cassandra.eot') format('eot'),
+  url('../theme/fonts/Cassandra.ttf') format('ttf'),
+  url('../theme/fonts/Cassandra.woff') format('woff'),
+  url('../theme/fonts/Cassandra.woff2') format('woff2');
+  font-weight: normal;
+}
+
+$bg-color: violet;
+body {
+  background: $bg-color;
+  font-family: Cassandra;
+}
