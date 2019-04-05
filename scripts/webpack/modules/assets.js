@@ -11,7 +11,7 @@ export const setupHtml = () => ({
     ],
 });
 
-export const loadimages = () => ({
+export const loadImages = () => ({
     module: {
         rules: [
             {
