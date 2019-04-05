@@ -64,3 +64,21 @@ export const loadSvg = () => ({
         ],
     },
 });
+
+export const loadFonts = () => ({
+    module: {
+        rules: [
+            {
+                test: /\.(eot|ttf|woff|woff2)$/,
+                use:  [
+                    {
+                        loader:  'file-loader',
+                        options: {
+                            name: './fonts/[name].[ext]',
+                        },
+                    }
+                ],
+            }
+        ],
+    },
+});
