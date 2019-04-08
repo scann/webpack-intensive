@@ -24,5 +24,6 @@ module.exports = () => {
         plugins: [new CleanWebpackPlugin({ BUILD_DIRECTORY, cleanOptions })],
     },
     modules.loadProdCss(),
+    modules.optimizeImages(),
     );
 };
