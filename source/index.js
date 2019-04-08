@@ -32,13 +32,26 @@ import './theme/main.css';
 //
 // }
 
-console.log('-->', RELEASE);
-console.log('-->', TWO);
-console.log('-->', THREE);
-console.log('-->', FOUR);
-console.log('-->', TRUE_SIMPLE);
-console.log('-->', TRUE_STRINGIFIED);
-//console.log('-->', HELLO_SIMPLE);
-console.log('-->', HELLO_STRINGIFIED);
+// console.log('-->', RELEASE);
+// console.log('-->', TWO);
+// console.log('-->', THREE);
+// console.log('-->', FOUR);
+// console.log('-->', TRUE_SIMPLE);
+// console.log('-->', TRUE_STRINGIFIED);
+// //console.log('-->', HELLO_SIMPLE);
+// console.log('-->', HELLO_STRINGIFIED);
+
+console.log('--> __ENV__', __ENV__);
+console.log('--> __DEV__', __DEV__);
+console.log('--> __STAGE__', __STAGE__);
+console.log('--> __PROD__', __PROD__);
+
+if (__DEV__) {
+    console.log('--> dev');
+}
+
+if (__PROD__) {
+    console.log('--> prod');
+}
 //import './simple-components/javascript';
 import './react-component';
