@@ -17,5 +17,28 @@ import './theme/main.css';
 //         document.body.appendChild(element);
 //     });
 // }
-// //import './simple-components/javascript';
+
+//!ENV variables
+
+// 1. API (ссылка к API - дев или прод)
+// 2. условия
+// 3. фичи в разработке (feature flags)
+//
+// if (process.env.NODE_ENV === 'development') {
+//     console.log('--> development');
+// }
+//
+// if (RELEASE === 2.1 ) {
+//
+// }
+
+console.log('-->', RELEASE);
+console.log('-->', TWO);
+console.log('-->', THREE);
+console.log('-->', FOUR);
+console.log('-->', TRUE_SIMPLE);
+console.log('-->', TRUE_STRINGIFIED);
+//console.log('-->', HELLO_SIMPLE);
+console.log('-->', HELLO_STRINGIFIED);
+//import './simple-components/javascript';
 import './react-component';
