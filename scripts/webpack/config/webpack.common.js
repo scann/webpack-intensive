@@ -12,8 +12,9 @@ export default () => {
     return merge({
         entry:  [SOURCE_DIRECTORY],
         output: {
-            path:     BUILD_DIRECTORY,
-            filename: 'js/bundle.js',
+            path:       BUILD_DIRECTORY,
+            filename:   'js/bundle.js',
+            publicPath: '/',
         },
     },
     modules.loadJavaScript(),
