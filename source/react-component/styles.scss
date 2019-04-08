@@ -1,5 +1,5 @@
-body {
-  $test: #161616;
+.test {
+  $test: wheat;
 
-  background-color: $test !important;
+  color: $test !important;
 }
