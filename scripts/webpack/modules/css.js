@@ -1,6 +1,5 @@
 //Core
 import env from 'postcss-preset-env';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export const loadCss = () => ({
     module: {
