@@ -8,6 +8,9 @@ import { BUILD_DIRECTORY, PROJECT_ROOT } from '../constants';
 //Configurations
 import getCommonConfig from './webpack.common';
 
+//Modules
+import * as modules from '../modules';
+
 const cleanOptions = {
     verbose: true,
     root:    PROJECT_ROOT,
@@ -19,5 +22,7 @@ module.exports = () => {
         mode:    'none',
         devtool: false,
         plugins: [new CleanWebpackPlugin({ BUILD_DIRECTORY, cleanOptions })],
-    });
+    },
+    modules.loadProdCss(),
+    );
 };
