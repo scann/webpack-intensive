@@ -1,4 +1,5 @@
-$bg-color: violet;
 body {
-  background: $bg-color;
+  $test: wheat;
+
+  background-color: $test !important;
 }
