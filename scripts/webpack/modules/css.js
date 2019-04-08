@@ -64,14 +64,19 @@ export const loadSass = () => ({
         rules: [
             {
                 test: /\.scss$/,
-                use:  ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use:      ['css-loader', 'sass-loader'],
-                }),
+                use:  [
+                    'style-loader',
+                    {
+                        loader:  'css-loader',
+                        options: {
+                            modules:        true,
+                            localIdentName:
+                            '[path][name]__[local]--[hash:base64:5]',
+                        },
+                    },
+                    'sass-loader'
+                ],
             }
         ],
     },
-    plugins: [
-        new ExtractTextPlugin('style.css')
-    ],
 });
