@@ -1,6 +1,7 @@
 //Core
 import { DefinePlugin } from 'webpack';
 import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
+import WebpackBar from 'webpackbar';
 import merge from 'webpack-merge';
 
 //Constants
@@ -37,6 +38,10 @@ export default () => {
                 },
                 clearConsole: true,
 
+            }),
+            new WebpackBar({
+                profile: true,
+                color:   'blue',
             })
         ],
     },
