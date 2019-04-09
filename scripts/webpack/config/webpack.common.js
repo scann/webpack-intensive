@@ -1,5 +1,6 @@
 //Core
 import { DefinePlugin } from 'webpack';
+import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
 import merge from 'webpack-merge';
 
 //Constants
@@ -28,6 +29,14 @@ export default () => {
 
                 //HELLO_SIMPLE:      'hello',
                 //HELLO_STRINGIFIED: JSON.stringify('hello'),
+            }),
+            new FriendlyErrorsWebpackPlugin({
+                compilationSuccessInfo: {
+                    messages: ['You application is running here http://localhost:3000'],
+                    notes:    ['Some additional notes to be displayed upon successful compilation'],
+                },
+                clearConsole: true,
+
             })
         ],
     },

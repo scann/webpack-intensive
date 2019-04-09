@@ -14,7 +14,9 @@ module.exports = () => {
         mode:    'development',
         devtool: 'cheap-module-eval-source-map',
         entry:   ['webpack-hot-middleware/client?reload=true&quiet=true'],
-        plugins: [new HotModuleReplacementPlugin()],
+        plugins: [
+            new HotModuleReplacementPlugin()
+        ],
     },
     modules.loadDevCss(),
     );
