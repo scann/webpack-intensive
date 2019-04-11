@@ -1,9 +1,5 @@
 //Core
-import CleanWebpackPlugin from 'clean-webpack-plugin';
 import merge from 'webpack-merge';
-
-//Constants
-import { BUILD_DIRECTORY, PROJECT_ROOT } from '../constants';
 
 //Configurations
 import getCommonConfig from './webpack.common';
@@ -11,19 +7,24 @@ import getCommonConfig from './webpack.common';
 //Modules
 import * as modules from '../modules';
 
-const cleanOptions = {
-    verbose: true,
-    root:    PROJECT_ROOT,
-};
+/**
+ *
+ * Типы конфигов вебпак:
+ * Function
+ * Object
+ * Promise
+ */
 
-module.exports = () => {
+export default () => {
 
-    return merge(getCommonConfig(), {
-        mode:    'none',
-        devtool: false,
-        plugins: [new CleanWebpackPlugin({ BUILD_DIRECTORY, cleanOptions })],
-    },
-    modules.loadProdCss(),
-    modules.optimizeImages(),
+    return merge(getCommonConfig(),
+        {
+            mode:    'none',
+            devtool: false,
+        },
+        modules.cleanDirectories(),
+        modules.connectBuildProgressIndicator(),
+        modules.loadProdCss(),
+        modules.optimizeImages(),
     );
 };

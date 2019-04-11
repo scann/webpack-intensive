@@ -1,14 +1,20 @@
 //Core
 import { DefinePlugin } from 'webpack';
-import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
-import WebpackBar from 'webpackbar';
 import merge from 'webpack-merge';
 
 //Constants
-const { BUILD_DIRECTORY, SOURCE_DIRECTORY } = require('../constants');
+import { SOURCE_DIRECTORY, BUILD_DIRECTORY } from '../constants';
 
 //Modules
 import * as modules from '../modules';
+
+/**
+ *
+ * Типы конфигов вебпак:
+ * Function
+ * Object
+ * Promise
+ */
 
 export default () => {
     const { NODE_ENV } = process.env;
@@ -30,18 +36,6 @@ export default () => {
 
                 //HELLO_SIMPLE:      'hello',
                 //HELLO_STRINGIFIED: JSON.stringify('hello'),
-            }),
-            new FriendlyErrorsWebpackPlugin({
-                compilationSuccessInfo: {
-                    messages: ['You application is running here http://localhost:3000'],
-                    notes:    ['Some additional notes to be displayed upon successful compilation'],
-                },
-                clearConsole: true,
-
-            }),
-            new WebpackBar({
-                profile: true,
-                color:   'blue',
             })
         ],
     },
