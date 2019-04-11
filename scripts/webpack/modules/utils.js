@@ -21,9 +21,10 @@ export const connectHMR = () => ({
 
 export const cleanDirectories = () => ({
     plugins: [
-        new CleanWebpackPlugin([BUILD_DIRECTORY], {
-            verbose: true,
-            root:    PROJECT_ROOT,
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: [BUILD_DIRECTORY],
+            verbose:                      true,
+            root:                         PROJECT_ROOT,
         })
     ],
 });
