@@ -19,12 +19,14 @@ export default () => {
 
     return merge(getCommonConfig(),
         {
-            mode:    'none',
+            mode:    'none', //NODE_ENV = 'production'
             devtool: false,
         },
         modules.cleanDirectories(),
         modules.connectBuildProgressIndicator(),
         modules.loadProdCss(),
+        modules.optimizeBuild(),
         modules.optimizeImages(),
+        modules.connectBundleAnalyzer(),
     );
 };
