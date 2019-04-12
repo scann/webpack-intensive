@@ -1,4 +1,5 @@
 //Core
+import webpack from 'webpack';
 import ImageminWebpackPlugin from 'imagemin-webpack';
 import TerserPlugin from 'terser-webpack-plugin';
 import imageminMozjpeg from 'imagemin-mozjpeg';
@@ -98,5 +99,11 @@ export const optimizeImages = () => ({
                 ],
             },
         })
+    ],
+});
+
+export const loadLocales = () => ({
+    plugins: [
+        new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en-gb|uk/)
     ],
 });
