@@ -22,9 +22,10 @@ export default () => {
     return merge({
         entry:  [SOURCE_DIRECTORY],
         output: {
-            path:       BUILD_DIRECTORY,
-            filename:   'js/bundle.js',
-            publicPath: '/',
+            path:          BUILD_DIRECTORY,
+            filename:      'js/[name].[contenthash].[id].js',
+            chunkFilename: 'js/[name].[chunkhash:5].[id].js',
+            publicPath:    '/',
         },
         plugins: [
             new DefinePlugin({

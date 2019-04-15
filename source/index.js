@@ -1,26 +1,30 @@
-import moment from 'moment';
-const now = moment.now();
+import { update } from 'lodash-es';
 
-import component from './simple-components/dom';
-//import './theme/main.css';
+console.log(update);
 
-let element = component();
+// import moment from 'moment';
+// const now = moment.now();
 
-document.body.appendChild(element);
+// import component from './simple-components/dom';
+// //import './theme/main.css';
+//
+// let element = component();
+//
+// document.body.appendChild(element);
 //
 // //TODO: hot reloading на React
 // //1.react-hot-loader: babel-plugin
 // //2.react-hot-loader: исходный код
 // //hot(module)(component);
 //
-if (module.hot) {
-    module.hot.accept('./simple-components/dom', function() {
-        document.body.removeChild(element);
-        element = component();
-        document.body.appendChild(element);
-    });
-}
-import './react-component';
+// if (module.hot) {
+//     module.hot.accept('./simple-components/dom', function() {
+//         document.body.removeChild(element);
+//         element = component();
+//         document.body.appendChild(element);
+//     });
+// }
+// import './react-component';
 //!ENV variables
 
 // 1. API (ссылка к API - дев или прод)

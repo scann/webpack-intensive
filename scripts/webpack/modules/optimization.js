@@ -57,7 +57,7 @@ export const optimizeBuild = () => ({
         // ? эта настройка зависит от providedExports
         usedExports: true,
 
-        // production: собирает зависимость более эффективно, если в package.json зависимости стоит "sideEffects": false
+        // production: собирает зависимость более эффективно, если в package.json зависимости тоже стоит этот флаг.
         // ? эта настройка зависит от providedExports и usedExports
         sideEffects: true, //TODO: (TREE SHAKING) посмотреть
 
