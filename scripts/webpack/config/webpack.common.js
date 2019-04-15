@@ -39,7 +39,7 @@ export default () => {
             })
         ],
     },
-    modules.loadLocales(),
+    modules.filterMomentLocales(),
     modules.loadJavaScript(),
     modules.loadFonts(),
     modules.loadSass(),
