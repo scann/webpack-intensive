@@ -1,17 +1,17 @@
-import { update } from 'lodash-es';
+//import { update } from 'lodash-es';
 
-console.log(update);
+c//onsole.log(update);
 
 // import moment from 'moment';
 // const now = moment.now();
 
-// import component from './simple-components/dom';
-// //import './theme/main.css';
-//
-// let element = component();
-//
-// document.body.appendChild(element);
-//
+import component from './simple-components/dom';
+import './theme/main.css';
+
+let element = component();
+
+document.body.appendChild(element);
+
 // //TODO: hot reloading на React
 // //1.react-hot-loader: babel-plugin
 // //2.react-hot-loader: исходный код

@@ -39,7 +39,7 @@ class Clicker extends Component {
                     <img src = { reactLogo } />
                     <img src = { kitty } />
                     <h1 className = { Sass.test }>Тест: {count}</h1>
-                    <Button onClick = { this.inc }>Increment</Button>
+                    <Button onClick = { this.inc }>INCREMENT</Button>
                     <Button onClick = { this.dec }>Decrement</Button>
                 </section>
             );
