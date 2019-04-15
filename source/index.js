@@ -24,7 +24,7 @@ console.log(update);
 //         document.body.appendChild(element);
 //     });
 // }
-// import './react-component';
+import './react-component';
 //!ENV variables
 
 // 1. API (ссылка к API - дев или прод)
