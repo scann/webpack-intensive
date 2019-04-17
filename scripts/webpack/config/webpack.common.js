@@ -19,17 +19,18 @@ import * as modules from '../modules';
 export default () => {
 
     const { NODE_ENV } = process.env;
-    const IS_DEV = NODE_ENV === 'development';
+    const IS_DEVELOPMENT = NODE_ENV === 'development';
 
     return merge({
         entry:  [SOURCE_DIRECTORY],
         output: {
-            path:          BUILD_DIRECTORY,
-            filename:      'js/bundle.[hash:5].js',
-            chunkFilename: 'js/bundle.[chunkhash:5].js', //TODO research
-            // filename:      IS_DEV ? 'js/[name].[hash].[id].js' :'js/[name].[contenthash].[id].js',
-            // chunkFilename: IS_DEV ? 'js/[name].[chunkhash:5].[id].js' : 'js/[name].[chunkhash:5].[id].js',
-            publicPath:    '/',
+            path:     BUILD_DIRECTORY,
+            filename: IS_DEVELOPMENT
+                ? 'js/bundle.[hash].bundle.js'
+                : 'js/bundle.[chunkhash].bundle.js', //entry point bundle name
+            chunkFilename:    'js/bundle.[chunkhash].chunk.js', //chunk name
+            publicPath:       '/',
+            hashDigestLength: 5, //hash length
         },
         plugins: [
             new DefinePlugin({
@@ -44,12 +45,12 @@ export default () => {
             })
         ],
     },
-    modules.filterMomentLocales(),
     modules.loadJavaScript(),
-    modules.loadFonts(),
     modules.loadSass(),
+    modules.loadFonts(),
     modules.loadImages(),
     modules.loadSvg(),
     modules.setupHtml(),
+    modules.filterMomentLocales()
     );
 };
