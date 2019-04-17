@@ -87,7 +87,7 @@ export const optimizeBuild = () => ({
         //Эта опция включена всегда. Конфигурируется в SplitChunksPlugin
         splitChunks: {
             //режим разделения кода. По умолчанию - async.
-            chunks: 'initial', // async, initial, all = (async + initial - is preferred)
+            chunks: 'all', // async, initial, all = (async + initial - is preferred)
 
             // Минимальный размер чанка для отделения.
             minSize: 30000, //bytes
@@ -166,7 +166,7 @@ export const optimizeBuild = () => ({
             },
         },
         //Выносит webpack runtime каждого entrypoint в отдельный чанк. false по умолчанию
-        runtimeChunk: false, //TODO: разобрать
+        runtimeChunk: true, //TODO: разобрать
     },
 });
 
