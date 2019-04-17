@@ -4,12 +4,12 @@
 // import moment from 'moment';
 // const now = moment.now();
 
-import component from './simple-components/dom';
+//import component from './simple-components/dom';
 import './theme/main.css';
 
-let element = component();
-
-document.body.appendChild(element);
+// let element = component();
+//
+// document.body.appendChild(element);
 
 // //TODO: hot reloading на React
 // //1.react-hot-loader: babel-plugin
@@ -23,7 +23,7 @@ document.body.appendChild(element);
 //         document.body.appendChild(element);
 //     });
 // }
-import './react-component';
+import './react-component/Carousel';
 //!ENV variables
 
 // 1. API (ссылка к API - дев или прод)
