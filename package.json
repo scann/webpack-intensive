@@ -9,7 +9,8 @@
         "analyze": "webpack-bundle-analyzer \"./build/stats.json\"",
         "checkpoint": "cross-env-shell NODE_ENV=development node --require @babel/register \"./scripts/git/checkpoint.js\"",
         "sync": "cross-env-shell NODE_ENV=development node --require @babel/register \"./scripts/git/sync.js\"",
-        "serve": "serve \"./build\" -s"
+        "serve": "serve \"./build\" -s",
+        "debug-prod": "cross-env-shell NODE_ENV=production ndb node --require @babel/register \"./scripts/webpack/build.js\""
     },
     "devDependencies": {
         "@babel/core": "^7.2.0",
@@ -42,6 +43,7 @@
         "inquirer": "^6.2.2",
         "mini-css-extract-plugin": "^0.5.0",
         "moment": "2.22.2",
+        "ndb": "^1.0.44",
         "node-sass": "^4.11.0",
         "nodegit": "0.23.0",
         "opener": "^1.5.1",
