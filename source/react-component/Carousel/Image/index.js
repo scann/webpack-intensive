@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import Styles from './styles.css';
 
 export class Image extends Component {
-    render() {
+    render () {
         const { link } = this.props;
 
         return (

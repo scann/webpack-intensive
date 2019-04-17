@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import Styles from './styles.css';
 
 export class Loading extends Component {
-    render() {
+    render () {
         const { error, timedOut, pastDelay, retry } = this.props;
 
         if (error) {

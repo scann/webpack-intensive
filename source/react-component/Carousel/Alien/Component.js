@@ -9,7 +9,7 @@ import alien from '../../../theme/assets/images/alien.jpg';
 import { Image } from '../Image';
 
 export default class extends Component {
-    render() {
+    render () {
         return (
             <section className = { Styles.alien }>
                 <h1>Alien!</h1>
