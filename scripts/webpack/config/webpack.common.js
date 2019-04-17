@@ -32,25 +32,15 @@ export default () => {
             publicPath:       '/',
             hashDigestLength: 5, //hash length
         },
-        plugins: [
-            new DefinePlugin({
-                __API_URI__: 'https://',
-                __ENV__:     JSON.stringify(NODE_ENV),
-                __DEV__:     NODE_ENV === 'development',
-                __STAGE__:   NODE_ENV === 'stage',
-                __PROD__:    NODE_ENV === 'production',
-
-                //HELLO_SIMPLE:      'hello',
-                //HELLO_STRINGIFIED: JSON.stringify('hello'),
-            })
-        ],
     },
+    modules.defineEnvVariables,
     modules.loadJavaScript(),
     modules.loadSass(),
     modules.loadFonts(),
     modules.loadImages(),
     modules.loadSvg(),
     modules.setupHtml(),
-    modules.filterMomentLocales()
+    modules.filterMomentLocales(),
+    modules.provideGlobals()
     );
 };

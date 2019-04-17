@@ -1,5 +1,5 @@
 // Core
-import React, { Component } from 'react';
+import { Component } from 'react';
 import Loadable from 'react-loadable';
 
 // Components

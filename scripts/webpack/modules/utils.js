@@ -1,5 +1,5 @@
 //Core
-import { HotModuleReplacementPlugin } from 'webpack';
+import { DefinePlugin, HotModuleReplacementPlugin, ProvidePlugin } from 'webpack';
 import WebpackBar from 'webpackbar';
 import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
@@ -36,5 +36,30 @@ export const connectBundleAnalyzer = () => ({
         openAnalyzer:      false,
         generateStatsFile: true,
     })
+    ],
+});
+export const defineEnvVariables = () => {
+    const { NODE_ENV } = process.env;
+
+    return {
+        plugins: [
+            new DefinePlugin({
+                __API_URI__: 'https://',
+                __ENV__:     JSON.stringify(NODE_ENV),
+                __DEV__:     NODE_ENV === 'development',
+                __STAGE__:   NODE_ENV === 'stage',
+                __PROD__:    NODE_ENV === 'production',
+            })
+        ],
+    };
+};
+
+export const provideGlobals = () => ({
+    plugins: [
+        new ProvidePlugin({
+            React: 'react',
+            $:     'jquery',
+            _:     'lodash-es',
+        })
     ],
 });
