@@ -41,6 +41,7 @@
         "imagemin-svgo": "^7.0.0",
         "imagemin-webpack": "^4.1.0",
         "inquirer": "^6.2.2",
+        "js-yaml": "^3.13.1",
         "mini-css-extract-plugin": "^0.5.0",
         "moment": "2.22.2",
         "ndb": "^1.0.44",
